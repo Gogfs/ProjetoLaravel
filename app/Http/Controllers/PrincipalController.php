@@ -21,4 +21,12 @@ class PrincipalController extends Controller
     public static function cursos() {
         return view('site.cursos');
     }
+
+    public static function welcome() {
+        return view('welcome');
+    }
+
+    public static function dashboard() {
+        return view('dashboard');
+    }
 }

@@ -26,7 +26,40 @@
                 </li>
             </ul>
         </nav>
+
+         @if (Route::has('login'))
+    <nav class="bg-blue-500 px-6 py-2 flex justify-end">
+        <div class="flex gap-8">
+            @auth
+                <a
+                    href="{{ url('/dashboard') }}"
+                    class="text-white text-base font-semibold hover:text-yellow-300 transition duration-200"
+                >
+                    Dashboard
+                </a>
+            @else
+                <a
+                    href="{{ route('login') }}"
+                    class="text-white text-base font-semibold hover:text-yellow-300 transition duration-200"
+                >
+                    Log in &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </a>
+
+                @if (Route::has('register'))
+                    <a
+                        href="{{ route('register') }}"
+                        class="text-white text-base font-semibold hover:text-yellow-300 transition duration-200"
+                    >
+                        Registrar
+                    </a>
+                @endif
+            @endauth
+        </div>
+    </nav>
+@endif
+
     </header>
+
 
     <!-- Conteudo Principal -->
     <main class="flex-grow mt-20 mb-16">
